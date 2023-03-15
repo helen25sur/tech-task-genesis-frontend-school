@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 
 // import Components
 import PaginationComponent from '@/components/PaginationComponent.vue';
@@ -9,30 +9,53 @@ import CoursesItemComponent from '../components/CoursesItemComponent.vue';
 import coursesService from '../services/coursesService';
 const CoursesService = new coursesService();
 
-const courseList = ref([]);
+// Emits from Components
+defineEmits(['nextPage', 'previousPage', 'changePage']);
 
+// Ref data
+const courseList = ref([]);
+const page = ref(1);
+
+// Methods
 const getAllCourses = async () => {
   const list = await CoursesService.getCourses();
-  console.log(list);
   courseList.value = list;
 }
 
+// Lifecycle hooks
 onMounted(() => {
   getAllCourses();
 });
+
+// Computed values
+const visibleCourses = computed(() => {
+  const start = (page.value - 1) * 10;
+  const end = page.value * 10;
+  return [...courseList.value].slice(start, end);
+});
+
+const start = computed(() => (page.value - 1) * 10 + 1);
+const end = computed(() => page.value * 10);
 
 </script>
 
 <template>
   <main class="bg-slate-100 box-content">
     <div class="container my-0 mx-auto py-4">
-      <h1 class="text-5xl font-bold text-teal-700">List of Courses</h1>
-      <section class="my-6">
-        <CoursesItemComponent v-for="course in courseList" :key="course.id" :course="course"></CoursesItemComponent>
-      </section>
-      <PaginationComponent 
+      <h1 class="text-5xl font-bold text-teal-700 my-4">List of Courses</h1>
+       <PaginationComponent
+        v-model="page"
+        :page="page"
+        :start="start"
+        :end="end"
+        @next-page="page = page + 1"
+        @previous-page="page = page - 1"
+        @change-page="(p) => page = p"
         :maxCountOnPage="10" 
         :allCount="courseList.length"></PaginationComponent>
+      <section class="my-6">
+        <CoursesItemComponent v-for="course in visibleCourses" :key="course.id" :course="course"></CoursesItemComponent>
+      </section>
     </div>
   </main>
 </template>
