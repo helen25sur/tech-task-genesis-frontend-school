@@ -1,28 +1,33 @@
 <script setup>
+import { ref } from 'vue';
 // import Components
 import VideoComponent from './VideoComponent.vue';
 import SkillsListComponent from './SkillsListComponent.vue';
 import RatingCourseComponent from './RatingCourseComponent.vue';
 
+const isVisibleVideo = ref(false);
+
 defineProps(['course', 'idx']);
 </script>
 
 <template>
-  <article class="my-6 p-6 bg-slate-200 rounded-2xl border border-solid border-gray-300">
+  <article 
+    @mouseover="isVisibleVideo = true"
+    @mouseleave="isVisibleVideo = false"
+    class="my-6 p-6 bg-slate-200 rounded-2xl border border-solid border-gray-300">
     <h2 class="mb-6 text-2xl uppercase font-bold text-teal-500">{{ course.title }}</h2>
-    <div class="description-course grid gap-6">
-      <img class="rounded-xl" :src="course.previewImageLink + '/cover.webp'" :alt="course.title">
+    <div class="description-course grid gap-6 cursor-pointer">
+      <img v-if="!isVisibleVideo" class="rounded-xl" :src="course.previewImageLink + '/cover.webp'" :alt="course.title">
 
       <!-- Link don't work -->
-      <VideoComponent v-if="course.meta.courseVideoPreview"
+      <VideoComponent v-if="isVisibleVideo"
           :id="idx"
           :video="course.meta.courseVideoPreview.link"
           :poster="course.previewImageLink"></VideoComponent>
 
       <div class="detail">
         <p class="font-bold">Count of lessons: <span
-            class="inline-block ml-3 py-1 px-3 bg-orange-300 border border-solid border-orange-400 rounded-sm">{{
-              course.lessonsCount }}</span> </p>
+            class="inline-block ml-3 py-1 px-3 bg-orange-300 border border-solid border-orange-400 rounded-sm"> {{ course.lessonsCount }}</span> </p>
 
         <SkillsListComponent :skills="course.meta.skills"></SkillsListComponent>
 
