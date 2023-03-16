@@ -3,11 +3,12 @@ import { ref, onMounted, computed } from 'vue';
 
 // import Components
 import PaginationComponent from '@/components/PaginationComponent.vue';
-import CoursesItemComponent from '../components/CoursesItemComponent.vue';
-import SpinnerComponent from '../components/SpinnerComponent.vue';
+import CoursesItemComponent from '@/components/CoursesItemComponent.vue';
+import SpinnerComponent from '@/components/SpinnerComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 // Courses Service
-import coursesService from '../services/coursesService';
+import coursesService from '@/services/coursesService';
 const CoursesService = new coursesService();
 
 // Emits from Components
@@ -66,4 +67,5 @@ const end = computed(() => page.value * 10);
       </section>
     </div>
   </main>
+    <FooterComponent v-if="isLoaded"></FooterComponent>
 </template>

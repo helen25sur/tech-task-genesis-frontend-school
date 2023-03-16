@@ -8,6 +8,7 @@ import { useRouter } from 'vue-router';
 import SkillsListComponent from '@/components/SkillsListComponent.vue';
 import RatingCourseComponent from '@/components/RatingCourseComponent.vue';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 // Courses Service
 import coursesService from '@/services/coursesService';
@@ -89,6 +90,7 @@ onBeforeMount( () => {
       </article>
     </div>
   </main>
+  <FooterComponent v-if="isLoaded"></FooterComponent>
 </template>
 
 <style scoped>
