@@ -20,6 +20,7 @@ const page = ref(1);
 const getAllCourses = async () => {
   const list = await CoursesService.getCourses();
   courseList.value = list;
+  console.log(list);
 }
 
 // Lifecycle hooks
@@ -44,7 +45,6 @@ const end = computed(() => page.value * 10);
     <div class="container my-0 mx-auto py-4">
       <h1 class="text-5xl font-bold text-teal-700 my-4">List of Courses</h1>
        <PaginationComponent
-        v-model="page"
         :page="page"
         :start="start"
         :end="end"
@@ -53,8 +53,9 @@ const end = computed(() => page.value * 10);
         @change-page="(p) => page = p"
         :maxCountOnPage="10" 
         :allCount="courseList.length"></PaginationComponent>
+
       <section class="my-6">
-        <CoursesItemComponent v-for="course in visibleCourses" :key="course.id" :course="course"></CoursesItemComponent>
+        <CoursesItemComponent v-for="(course, idx) in visibleCourses" :key="course.id" :course="course" :idx="idx"></CoursesItemComponent>
       </section>
     </div>
   </main>

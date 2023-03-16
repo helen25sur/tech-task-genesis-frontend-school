@@ -1,10 +1,10 @@
 <script setup>
 // import Components
-// import VideoComponent from './VideoComponent.vue';
+import VideoComponent from './VideoComponent.vue';
 import SkillsListComponent from './SkillsListComponent.vue';
 import RatingCourseComponent from './RatingCourseComponent.vue';
 
-defineProps(['course']);
+defineProps(['course', 'idx']);
 </script>
 
 <template>
@@ -14,18 +14,19 @@ defineProps(['course']);
       <img class="rounded-xl" :src="course.previewImageLink + '/cover.webp'" :alt="course.title">
 
       <!-- Link don't work -->
-      <!-- <VideoComponent v-if="course.meta.courseVideoPreview"
-        :video="course.meta.courseVideoPreview.link"
-        :poster="course.previewImageLink"></VideoComponent> -->
+      <VideoComponent v-if="course.meta.courseVideoPreview"
+          :id="idx"
+          :video="course.meta.courseVideoPreview.link"
+          :poster="course.previewImageLink"></VideoComponent>
 
       <div class="detail">
         <p class="font-bold">Count of lessons: <span
-              class="inline-block ml-3 py-1 px-3 bg-orange-300 border border-solid border-orange-400 rounded-sm">{{
+            class="inline-block ml-3 py-1 px-3 bg-orange-300 border border-solid border-orange-400 rounded-sm">{{
               course.lessonsCount }}</span> </p>
 
-       <SkillsListComponent :skills="course.meta.skills"></SkillsListComponent>
+        <SkillsListComponent :skills="course.meta.skills"></SkillsListComponent>
 
-      <RatingCourseComponent :rating="course.rating"></RatingCourseComponent>
+        <RatingCourseComponent :rating="course.rating"></RatingCourseComponent>
       </div>
     </div>
   </article>

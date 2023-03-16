@@ -5,10 +5,18 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vite App</title>
+  <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+ <script defer src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+
+    <script type="module" defer src="/src/main.js"></script>
     <link rel="stylesheet" href="/src/assets/main.css">
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+     <video id="my-video-1" class="video-js" muted controls preload="auto"
+      data-setup='{}'>
+    <source src="https://wisey.app/videos/the-secret-to-speed-learning/preview/AppleHLS1/preview.m3u8" type="application/x-mpegURL">
+  </video>
+    
   </body>
 </html>
