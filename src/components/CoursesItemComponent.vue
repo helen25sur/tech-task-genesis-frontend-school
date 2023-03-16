@@ -1,22 +1,28 @@
 <script setup>
 import { ref } from 'vue';
+// import { useRouter, useRoute } from 'vue-router';
+
 // import Components
 import VideoComponent from './VideoComponent.vue';
 import SkillsListComponent from './SkillsListComponent.vue';
 import RatingCourseComponent from './RatingCourseComponent.vue';
 
+defineProps(['course', 'idx']);
+
 const isVisibleVideo = ref(false);
 
-defineProps(['course', 'idx']);
 </script>
 
 <template>
   <article 
     @mouseover="isVisibleVideo = true"
     @mouseleave="isVisibleVideo = false"
-    class="my-6 p-6 bg-slate-200 rounded-2xl border border-solid border-gray-300">
+    class="my-6 p-6 bg-slate-200 rounded-2xl border border-solid border-gray-300 cursor-pointer hover:bg-slate-300 hover:border-gray-400 transition-all">
+
+    <router-link :to="`courses/${course.id}`">
+
     <h2 class="mb-6 text-2xl uppercase font-bold text-teal-500">{{ course.title }}</h2>
-    <div class="description-course grid gap-6 cursor-pointer">
+    <div class="description-course grid gap-6">
       <img v-if="!isVisibleVideo" class="rounded-xl" :src="course.previewImageLink + '/cover.webp'" :alt="course.title">
 
       <!-- Link don't work -->
@@ -34,6 +40,7 @@ defineProps(['course', 'idx']);
         <RatingCourseComponent :rating="course.rating"></RatingCourseComponent>
       </div>
     </div>
+    </router-link>
   </article>
 </template>
 

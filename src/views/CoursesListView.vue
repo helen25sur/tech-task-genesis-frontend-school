@@ -60,10 +60,3 @@ const end = computed(() => page.value * 10);
     </div>
   </main>
 </template>
-
-<style scoped>
-.container {
-  max-width: 1200px;
-  min-width: 340px;
-}
-</style>

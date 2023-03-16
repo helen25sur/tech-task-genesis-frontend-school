@@ -1,21 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import CoursesList from '../views/CoursesListView.vue';
-import CourseDetail from '../views/CourseDetailView.vue';
+import CoursesList from '@/views/CoursesListView.vue';
+import CourseDetail from '@/views/CourseDetailView.vue';
+import NotFound from '@/views/NotFound.vue';
+
+const routes = [
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
+  },
+  {
+    path: '/',
+    name: 'coursesPreview',
+    component: CoursesList
+  },
+  {
+    path: '/courses/:courseId',
+    name: 'courseDetail',
+    component: CourseDetail
+  }
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'coursesPreview',
-      component: CoursesList
-    },
-    {
-      path: '/courses/:courseId',
-      name: 'courseDetail',
-      component: CourseDetail
-    }
-  ],
+  routes,
 });
 
 export default router;
