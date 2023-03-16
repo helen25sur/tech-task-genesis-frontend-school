@@ -4,6 +4,7 @@ import { ref, onMounted, computed } from 'vue';
 // import Components
 import PaginationComponent from '@/components/PaginationComponent.vue';
 import CoursesItemComponent from '../components/CoursesItemComponent.vue';
+import SpinnerComponent from '../components/SpinnerComponent.vue';
 
 // Courses Service
 import coursesService from '../services/coursesService';
@@ -15,12 +16,14 @@ defineEmits(['nextPage', 'previousPage', 'changePage']);
 // Ref data
 const courseList = ref([]);
 const page = ref(1);
+const isLoaded = ref(false);
 
 // Methods
 const getAllCourses = async () => {
   const list = await CoursesService.getCourses();
   courseList.value = list;
   console.log(list);
+  isLoaded.value = true;
 }
 
 // Lifecycle hooks
@@ -40,9 +43,13 @@ const end = computed(() => page.value * 10);
 
 </script>
 
+
 <template>
+<template v-if="!isLoaded">
+    <SpinnerComponent ></SpinnerComponent>
+</template>
   <main class="bg-slate-100 box-content">
-    <div class="container my-0 mx-auto py-4">
+    <div v-if="isLoaded" class="container my-0 mx-auto py-4">
       <h1 class="text-5xl font-bold text-teal-700 my-4">List of Courses</h1>
        <PaginationComponent
         :page="page"
