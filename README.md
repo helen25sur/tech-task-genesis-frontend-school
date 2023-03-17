@@ -2,7 +2,36 @@
 
 [![wakatime](https://wakatime.com/badge/user/7898c8e2-6b19-4825-b1c2-bbaaba8cace0/project/4a937523-e856-48d8-991e-6d8767c53197.svg)](https://wakatime.com/badge/user/7898c8e2-6b19-4825-b1c2-bbaaba8cace0/project/4a937523-e856-48d8-991e-6d8767c53197)
 
-This template should help get you started developing with Vue 3 in Vite.
+## App Components & Views
+
+```sh
+| APP
+  | CoursesListView
+   -----------------
+  |__ SpinnerComponent
+  |__ CoursesListComponent
+      |____ PaginationComponent
+      |____ CoursesItemComponent
+	        |____ VideoComponent
+	        |____ RatingCourseComponent
+	        |____ SkillsListComponent
+  |__ FooterComponent
+	  
+  | CourseDetailView
+   -----------------
+  |__ SpinnerComponent
+  |__ ButtonToMainComponent
+  |__ CourseDetailComponent
+      |____ RatingCourseComponent
+      |____ VideoComponent
+	  |____ SkillsListComponent
+  |__ FooterComponent
+
+  | NotFoundView
+   -----------------
+  |__ SpinnerComponent
+  |__ ButtonToMainComponent
+```
 
 ## Recommended IDE Setup
 
