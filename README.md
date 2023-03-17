@@ -24,7 +24,7 @@
   |__ CourseDetailComponent
       |____ RatingCourseComponent
       |____ VideoComponent
-	  |____ SkillsListComponent
+      |____ SkillsListComponent
   |__ FooterComponent
 
   | NotFoundView
