@@ -33,6 +33,29 @@
   |__ ButtonToMainComponent
 ```
 
+## Used Technologies
+1. **JavaScript (HTML/CSS)**
+2. **Vue.js**
+3. **Vue Router**
+4. **Vite.js**
+5. **TailwindCSS**
+6.  **FontAwesome**
+7.  **Hsl.js library for video** (?)
+8.   **Vitest** (?)
+
+## Desktop View
+**Main Page | All Courses**
+
+![Main Page | All Courses](https://user-images.githubusercontent.com/65970892/225944577-82688d5d-2f89-422c-b5c4-536496910ce3.png)
+
+**Course Detail Page**
+
+![Course Detail Page](https://user-images.githubusercontent.com/65970892/225945176-1174aab0-a6b7-4573-9be4-b76a3604fb94.png)
+
+**Page Not Found**
+
+![404 page](https://user-images.githubusercontent.com/65970892/225945785-91e6a0cd-448c-4313-aa3b-a5df2ee5a9a7.png)
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
