@@ -6,11 +6,11 @@
 
 <style scoped>
 .layout {
-  position: relative;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   z-index: 10;
-  background-color: #00655eb3;
+  background-color: #00655e;
 }
 
 .loader {

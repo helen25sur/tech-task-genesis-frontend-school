@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import CoursesList from '@/views/CoursesListView.vue';
 import CourseDetail from '@/views/CourseDetailView.vue';
-import NotFound from '@/views/NotFound.vue';
+import NotFound from '@/views/NotFoundView.vue';
 
 const routes = [
   {

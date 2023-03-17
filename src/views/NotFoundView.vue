@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 
 // import Components
 import ButtonToMainComponent from '@/components/ButtonToMainComponent.vue';
-import SpinnerComponent from '../components/SpinnerComponent.vue';
+import SpinnerComponent from '@/components/SpinnerComponent.vue';
 
 // Ref data
 const isLoaded = ref(false);
