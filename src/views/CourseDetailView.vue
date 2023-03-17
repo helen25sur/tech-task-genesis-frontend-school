@@ -20,7 +20,7 @@ const isDataLoaded = ref(false);
 <template>
   <SpinnerComponent v-if="!isDataLoaded"></SpinnerComponent>
   <div v-if="isDataLoaded">
-    <ButtonToMainComponent class="absolute top-10 left-40" title="All Courses"></ButtonToMainComponent>
+    <ButtonToMainComponent class="absolute lg:top-10 xl:left-40 top-5 left-10" title="All Courses"></ButtonToMainComponent>
   </div>
 
   <CourseDetailComponent v-show="isDataLoaded" :id="id" @vnodeBeforeUpdate="isDataLoaded = true"></CourseDetailComponent>

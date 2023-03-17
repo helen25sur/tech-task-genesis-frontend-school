@@ -18,3 +18,7 @@ const isLoaded = ref(false);
   <CoursesListComponent v-show="isLoaded" @vnodeBeforeUpdate="isLoaded = true"></CoursesListComponent>
   <FooterComponent v-if="isLoaded"></FooterComponent>
 </template>
+
+<style>
+
+</style>

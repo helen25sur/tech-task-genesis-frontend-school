@@ -43,7 +43,7 @@ const end = computed(() => page.value * 10);
 <template>
    <main class="bg-slate-100 box-content">
     <div  class="container my-0 mx-auto py-4">
-      <h1 class="text-5xl font-bold text-teal-700 my-4">List of Courses</h1>
+      <h1 class="text-5xl font-bold text-teal-700 my-4 ml-4">List of Courses</h1>
        <PaginationComponent
         :page="page"
         :start="start"
@@ -60,3 +60,11 @@ const end = computed(() => page.value * 10);
     </div>
   </main>
 </template>
+
+<style scoped>
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+</style>

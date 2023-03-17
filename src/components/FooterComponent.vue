@@ -1,9 +1,9 @@
 <template>
-  <footer class="bg-gradient-to-b from-teal-900 to-teal-700 text-white">
+  <footer class="py-4 bg-gradient-to-b from-teal-900 to-teal-700 text-white">
     <div class="container my-0 mx-auto py-8 text-center">
       <div class="contacts">
         <p class="font-semibold text-lg">Developed by <span class="text-teal-100 text-xl">Olena Surilova</span></p>
-        <div class="mx-auto my-6 links flex w-96 justify-evenly">
+        <div class="mx-auto my-6 links flex sm:w-96 w-48 justify-evenly">
           <a class="my-cv inline-block py-2 px-6 border-2 font-medium border-solid border-teal-300 rounded-xl hover:bg-teal-900 hover:text-teal-100 transition-all" 
             href="https://drive.google.com/file/d/1GDsTqHnqNogfmPB-0Q8JWwh4U4JrF61E/view?usp=sharing" target="_blank">My
             CV</a>
@@ -21,4 +21,14 @@
   </footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+@media screen and (max-width: 650px) {
+  .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 100%;
+  }
+  
+}
+</style>
