@@ -1,5 +1,4 @@
 import { createApp } from 'vue';
-import Hls from 'hls.js';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faStarHalfStroke, faStar, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -17,4 +16,3 @@ app.use(router);
 app.mount('#app');
 
 app.component('font-awesome-icon', FontAwesomeIcon);
-app.component('Hsl-video', Hls);

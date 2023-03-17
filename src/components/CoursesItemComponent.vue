@@ -3,9 +3,9 @@ import { ref } from 'vue';
 // import { useRouter, useRoute } from 'vue-router';
 
 // import Components
-import VideoComponent from './VideoComponent.vue';
-import SkillsListComponent from './SkillsListComponent.vue';
-import RatingCourseComponent from './RatingCourseComponent.vue';
+import VideoComponent from '@/components/VideoComponent.vue';
+import SkillsListComponent from '@/components/SkillsListComponent.vue';
+import RatingCourseComponent from '@/components/RatingCourseComponent.vue';
 
 defineProps(['course', 'idx']);
 
@@ -25,11 +25,10 @@ const isVisibleVideo = ref(false);
     <div class="description-course grid gap-6">
       <img v-if="!isVisibleVideo" class="rounded-xl" :src="course.previewImageLink + '/cover.webp'" :alt="course.title">
 
-      <!-- Link don't work -->
       <VideoComponent v-if="isVisibleVideo"
-          :id="idx"
+          :id="course.id"
           :video="course.meta.courseVideoPreview.link"
-          :poster="course.previewImageLink"></VideoComponent>
+          :poster="course.previewImageLink + '/cover.webp'"></VideoComponent>
 
       <div class="detail">
         <p class="font-bold">Count of lessons: <span

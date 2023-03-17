@@ -41,7 +41,7 @@ const end = computed(() => page.value * 10);
 </script>
 
 <template>
-   <main class="bg-slate-100 box-content">
+   <main class="bg-slate-100 box-content py-1">
     <div  class="container my-0 mx-auto py-4">
       <h1 class="text-5xl font-bold text-teal-700 my-4 ml-4">List of Courses</h1>
        <PaginationComponent

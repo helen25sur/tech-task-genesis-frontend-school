@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 // import Components 
-import CourseDetailComponent from '../components/CourseDetailComponent.vue';
+import CourseDetailComponent from '@/components/CourseDetailComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ButtonToMainComponent from '@/components/ButtonToMainComponent.vue';
 import SpinnerComponent from '@/components/SpinnerComponent.vue';
