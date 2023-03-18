@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUpdate } from 'vue';
 
 import videoService from '@/services/videoService.js';
 const videoProps = defineProps(['id', 'video', 'poster']);
@@ -13,10 +13,14 @@ onMounted(() => {
   getVideoSrc();
 });
 
+onBeforeUpdate(() => {
+  getVideoSrc();
+});
+
 </script>
 
 <template>
-  <video id="hover-video" class="rounded-xl" autoplay muted controls>
+  <video id="hover-video" class="rounded-xl" controls>
   </video>
 </template>
 

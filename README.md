@@ -23,8 +23,8 @@
   |__ ButtonToMainComponent
   |__ CourseDetailComponent
       |____ RatingCourseComponent
-      |____ VideoComponent
       |____ SkillsListComponent
+      |____ LessonComponent
   |__ FooterComponent
 
   | NotFoundView
@@ -40,7 +40,7 @@
 4. **Vite.js**
 5. **TailwindCSS**
 6.  **FontAwesome**
-7.  **Hsl.js library for video** (?)
+7.  **Hsl.js library for video**
 8.   **Vitest** (?)
 
 ## Desktop View

@@ -28,7 +28,8 @@ const isVisibleVideo = ref(false);
       <VideoComponent v-if="isVisibleVideo"
           :id="course.id"
           :video="course.meta.courseVideoPreview.link"
-          :poster="course.previewImageLink + '/cover.webp'"></VideoComponent>
+          :poster="course.previewImageLink + '/cover.webp'"
+          autoplay muted></VideoComponent>
 
       <div class="detail">
         <p class="font-bold">Count of lessons: <span
