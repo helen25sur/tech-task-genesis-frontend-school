@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onBeforeMount } from 'vue';
+import { ref, onBeforeMount, computed } from 'vue';
 
 // import Components
 import SkillsListComponent from '@/components/SkillsListComponent.vue';
@@ -13,6 +13,7 @@ const CoursesService = new coursesService();
 // Ref data
 const course = ref({});
 const isDataLoaded = ref(false);
+const lessons = ref([]);
 const currentLesson = ref({});
 
 // Props
@@ -24,8 +25,15 @@ const getCourse = async () => {
   course.value = detail;
   console.log(detail);
   isDataLoaded.value = true;
-  currentLesson.value = course.value.lessons[0];
-}
+  // console.log();
+  lessons.value = course.value.lessons;
+  currentLesson.value = orderLessons.value[0];
+};
+
+  const orderLessons = computed(() => {
+    return [...lessons.value].sort((a, b) => a.order - b.order);
+  });
+
 
 // Lifecycle hooks
 onBeforeMount(() => {
@@ -57,7 +65,7 @@ onBeforeMount(() => {
           <section class="lessons-section grid">
             <h2 class="lessons-title sm:text-2xl text-xl font-semibold text-teal-600">Lessons:</h2>
             <ul class="lessons-list">
-              <li v-for="(lesson) in course.lessons" :key="lesson.id" class="list-item py-4 cursor-pointer">
+              <li v-for="(lesson) in orderLessons" :key="lesson.id" class="list-item py-4 cursor-pointer">
                 <h3 @click="currentLesson = lesson;"
                   class="text-xl font-semibold hover:text-teal-700 relative">
                   {{ lesson.title }}

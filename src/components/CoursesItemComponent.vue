@@ -23,11 +23,11 @@ const isVisibleVideo = ref(false);
 
     <h2 class="mb-6 md:text-2xl text-xl uppercase font-bold text-teal-500">{{ course.title }}</h2>
     <div class="description-course grid gap-6">
-      <img v-if="!isVisibleVideo" class="rounded-xl" :src="course.previewImageLink + '/cover.webp'" :alt="course.title">
+      <img v-if="!isVisibleVideo || course.meta.courseVideoPreview === undefined" class="rounded-xl mb-12" :src="course.previewImageLink + '/cover.webp'" :alt="course.title">
 
-      <VideoComponent v-if="isVisibleVideo"
+      <VideoComponent v-if="isVisibleVideo && course.meta.courseVideoPreview"
           :id="course.id"
-          :video="course.meta.courseVideoPreview.link"
+          :video="course.meta.courseVideoPreview?.link"
           :poster="course.previewImageLink + '/cover.webp'"
           autoplay muted></VideoComponent>
 

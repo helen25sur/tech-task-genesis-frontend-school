@@ -11,6 +11,10 @@ const routes = [
   },
   {
     path: '/',
+    redirect: '/courses'
+  },
+  {
+    path: '/courses',
     name: 'coursesPreview',
     component: CoursesList
   },

@@ -5,7 +5,7 @@ defineProps(['title']);
 const router = useRouter();
 
 const goToMainPage = () => {
-  router.push('/');
+  router.push('/courses');
 }
 </script>
 
