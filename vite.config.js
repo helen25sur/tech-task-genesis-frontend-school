@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  publicPath: "/tech-task-genesis-frontend-school/",
+  base: "/tech-task-genesis-frontend-school/",
   plugins: [vue()],
   resolve: {
     alias: {

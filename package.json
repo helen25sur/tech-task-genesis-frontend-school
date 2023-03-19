@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "main": "main.js",
+  "homepage": "https://helen25sur.github.io/tech-task-genesis-frontend-school/",
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",
