@@ -23,6 +23,7 @@ const courseProps = defineProps(['id']);
 const getCourse = async () => {
   const detail = await CoursesService.getDetailCourse(courseProps.id);
   course.value = detail;
+  console.log(detail);
   isDataLoaded.value = true;
   lessons.value = course.value.lessons;
   currentLesson.value = orderLessons.value[0];

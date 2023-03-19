@@ -15,7 +15,11 @@ defineProps(['lesson']);
       <VideoComponent class="mt-6" :id="lesson.id" :video="lesson.link"></VideoComponent>
     </div>
     <div v-else-if="lesson.type === 'quiz_simulator'">
-      <img class="mt-6 rounded-xl" :src="lesson.previewImageLink + '/lesson-' + lesson.order + '.webp'" alt="lesson.title">
+      <img v-if="lesson.previewImageLink !== 'https://wisey.app/assets/images/web/no-cover.webp'" class="mt-6 rounded-xl" :src="lesson.previewImageLink + '/lesson-' + lesson.order + '.webp'" :alt="lesson.title">
+      <img v-else src="https://wisey.app/assets/images/web/no-cover.webp" :alt="lesson.title + ' no image cover'">
+    </div>
+    <div v-else-if="lesson.type === 'article'">
+      <iframe :src="lesson.link" frameborder="0" style="width: 100%; min-height: 600px;"></iframe>
     </div>
 </template>
 
