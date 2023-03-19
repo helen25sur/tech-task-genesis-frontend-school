@@ -10,7 +10,6 @@ import RatingCourseComponent from '@/components/RatingCourseComponent.vue';
 defineProps(['course', 'idx']);
 
 const isVisibleVideo = ref(false);
-
 </script>
 
 <template>
@@ -33,7 +32,17 @@ const isVisibleVideo = ref(false);
 
       <div class="detail">
         <p class="font-bold">Count of lessons: <span
-            class="inline-block ml-3 py-1 px-3 bg-orange-300 border border-solid border-orange-400 rounded-sm"> {{ course.lessonsCount }}</span> </p>
+            class="inline-block ml-3 py-1 px-3 bg-orange-300 border border-solid border-orange-400 rounded-sm"> {{ course.lessonsCount }}</span>
+          
+        <span class="ml-20 ">
+        <span class="text-orange-500 text-lg">
+          <font-awesome-icon icon="fa-regular fa-hourglass" />
+        </span>
+        <span class="text-black ml-3">Duration:</span>
+          <span
+            class="inline-block ml-3 py-1 px-3 bg-orange-300 border border-solid border-orange-400 rounded-sm text-black">
+        {{ course.duration }}</span></span>
+           </p>
 
         <SkillsListComponent :skills="course.meta.skills"></SkillsListComponent>
 
