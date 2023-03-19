@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-// import { useRouter, useRoute } from 'vue-router';
 
 // import Components
 import VideoComponent from '@/components/VideoComponent.vue';

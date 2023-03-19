@@ -10,6 +10,8 @@ defineProps(['lesson']);
   <h4 class="pl-6 text-teal-700 font-semibold text-2xl text-center"> {{ lesson.title }}</h4>
     <span v-if="lesson.status === 'locked'" class="locked absolute  w-60 h-30 text-lg p-6 text-center font-bold bg-gray-200 rounded-2xl z-10">{{ lesson.status }}</span>
     <div v-if="lesson.type === 'video'">
+      <p class="mt-2">If you want to increase speed of video - press <span style="font-family: 'Courier New', Courier, monospace;" class="text-orange-700 text-lg">Ctrl + ArrowUp</span></p>
+      <p>If you want to decrease speed of video - press <span style="font-family: 'Courier New', Courier, monospace;" class="text-orange-700 text-lg">Ctrl + ArrowDown</span></p>
       <VideoComponent class="mt-6" :id="lesson.id" :video="lesson.link"></VideoComponent>
     </div>
     <div v-else-if="lesson.type === 'quiz_simulator'">

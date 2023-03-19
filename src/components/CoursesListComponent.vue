@@ -20,7 +20,6 @@ const page = ref(1);
 const getAllCourses = async () => {
   const list = await CoursesService.getCourses();
   courseList.value = list;
-  console.log(list);
 }
 
 // Lifecycle hooks
