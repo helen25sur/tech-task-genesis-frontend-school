@@ -77,7 +77,7 @@ onBeforeMount(() => {
               <li v-for="(lesson) in orderLessons" :key="lesson.id" class="list-item py-4 cursor-pointer">
                 <h3 @click="currentLesson = lesson;" class="text-xl font-semibold hover:text-teal-700 relative">
                   {{ lesson.title }}
-                  <span class="absolute right-0 top-0 p-2 text-sm bg-gray-200 rounded-2xl">{{ lesson.status }}</span>
+                  <!-- <span class="absolute right-0 top-0 p-2 text-sm bg-gray-200 rounded-2xl">{{ lesson.status }}</span> -->
                 </h3>
                 <hr>
               </li>

@@ -16,6 +16,8 @@ defineEmits(['nextPage', 'previousPage', 'changePage']);
 const courseList = ref([]);
 const page = ref(1);
 
+const countCoursesOnPage = 5;
+
 // Methods
 const getAllCourses = async () => {
   const list = await CoursesService.getCourses();
@@ -29,13 +31,13 @@ onMounted(() => {
 
 // Computed values
 const visibleCourses = computed(() => {
-  const start = (page.value - 1) * 10;
-  const end = page.value * 10;
+  const start = (page.value - 1) * countCoursesOnPage;
+  const end = page.value * countCoursesOnPage;
   return [...courseList.value].slice(start, end);
 });
 
-const start = computed(() => (page.value - 1) * 10 + 1);
-const end = computed(() => page.value * 10);
+const start = computed(() => (page.value - 1) * countCoursesOnPage + 1);
+const end = computed(() => page.value * countCoursesOnPage);
 
 </script>
 
@@ -50,7 +52,7 @@ const end = computed(() => page.value * 10);
         @next-page="page = page + 1"
         @previous-page="page = page - 1"
         @change-page="(p) => page = p"
-        :maxCountOnPage="10" 
+        :maxCountOnPage="countCoursesOnPage" 
         :allCount="courseList.length"></PaginationComponent>
 
       <section class="my-6">
